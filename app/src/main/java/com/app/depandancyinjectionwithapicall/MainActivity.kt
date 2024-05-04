@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
         viewModel= ViewModelProvider(this)[MainViewModel::class.java]
 
         binding.getResponse.setOnClickListener {
+
+            Toast.makeText(this,"Get Skill ",Toast.LENGTH_LONG).show()
           viewModel.getSkills()
         }
 
