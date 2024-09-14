@@ -22,13 +22,6 @@ import org.json.JSONObject
 import retrofit2.Response
 
 
-internal fun Activity.showSnackBar(view: View, message: String) {
-    Snackbar.make(view, message, Snackbar.LENGTH_LONG).apply {
-        anchorView = view.rootView
-        show()
-    }
-}
-
 fun <T> handleResponse(
     response: Response<T>? = null,
     responseList: MutableLiveData<NetworkResult<T>>? = null
@@ -53,23 +46,3 @@ fun <T> handleResponse(
         ex.printStackTrace()
     }
 }
-
-
-
-internal fun Fragment.showSnackBar(view: View, message: String) {
-    Snackbar.make(view, message, Snackbar.LENGTH_LONG).apply {
-        anchorView = view.rootView
-        show()
-    }
-}
-
-internal fun Context.showToast(message: String) {
-    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-}
-
-internal inline fun <reified T : Activity> Context.startActivity(block: Intent.() -> Unit = {}) {
-    val intent = Intent(this, T::class.java)
-    block(intent)
-    startActivity(intent)
-}
-

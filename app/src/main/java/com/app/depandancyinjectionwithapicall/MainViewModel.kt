@@ -13,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private var repository: Repository
+    private var repository: Repository,
+
 
 )  : ViewModel(){
 
